@@ -78,4 +78,16 @@ public class MyArrayList {
 		
 	}
 	
+	
+	public int indexOf(int Value)
+	{
+		for(int z=0;z<arrfilledSize;z++)
+		{
+			if(MyArrayList[z] == Value)
+			{
+				return z+1;
+			}
+		}
+		return -1;
+	}
 }

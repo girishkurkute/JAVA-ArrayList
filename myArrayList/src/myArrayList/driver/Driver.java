@@ -42,7 +42,8 @@ public class Driver {
 			}				
 		}
 		arrObj.removeValue(5);
-		
+		int a=arrObj.indexOf(6);
+		System.out.println("index of 6:"+a);
 		
 	}
 

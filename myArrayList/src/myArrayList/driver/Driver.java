@@ -2,6 +2,7 @@ package myArrayList.driver;
 
 import java.util.InputMismatchException;
 
+import myArrayList.MyArrayList;
 import myArrayList.util.FileProcessor;
 
 public class Driver {
@@ -23,6 +24,7 @@ public class Driver {
 		}
 		
 		FileProcessor fpObj = new FileProcessor(inputfile);
+		MyArrayList arrObj = new MyArrayList();
 		
 		while((currNumber = fpObj.readLine())!= null)
 		{
@@ -36,7 +38,7 @@ public class Driver {
 			}
 			else
 			{
-				//method to insert element
+				arrObj.insertSorted(number);
 			}
 			
 		

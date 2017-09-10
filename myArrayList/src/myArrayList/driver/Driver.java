@@ -39,11 +39,11 @@ public class Driver {
 			else
 			{
 				arrObj.insertSorted(number);
-			}
-			
-		
+			}				
 		}
-
+		arrObj.removeValue(5);
+		
+		
 	}
 
 }

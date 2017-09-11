@@ -44,6 +44,10 @@ public class Driver {
 		arrObj.removeValue(5);
 		int a=arrObj.indexOf(6);
 		System.out.println("index of 6:"+a);
+		int size = arrObj.size();
+		System.out.println("Total elements in array is "+size);
+		int sum = arrObj.sum();
+		System.out.println("The sum of all the values in the array list is:"+sum);
 		
 	}
 

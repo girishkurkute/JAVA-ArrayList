@@ -90,4 +90,20 @@ public class MyArrayList {
 		}
 		return -1;
 	}
+	
+	public int size()
+	{
+		return arrfilledSize;
+	}
+	
+	public int sum()
+	{
+		int total = 0;
+		for(int m=0;m<arrfilledSize;m++)
+		{
+			total = total + MyArrayList[m];
+		}
+		return total;
+	}
+	
 }

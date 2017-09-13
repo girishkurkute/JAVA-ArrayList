@@ -106,4 +106,15 @@ public class MyArrayList {
 		return total;
 	}
 	
+	public void flush()
+	{
+		this.arrfilledSize=0;
+		this.MyArrayList = new int [50];
+	}
+	
+	public int[] copyArray()
+	{
+		return Arrays.copyOf(MyArrayList, arrfilledSize);
+	}
+
 }

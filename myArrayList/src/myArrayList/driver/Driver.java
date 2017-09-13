@@ -3,7 +3,9 @@ package myArrayList.driver;
 import java.util.InputMismatchException;
 
 import myArrayList.MyArrayList;
+import myArrayList.test.MyArrayListTest;
 import myArrayList.util.FileProcessor;
+import myArrayList.util.Results;
 
 public class Driver {
 
@@ -25,6 +27,8 @@ public class Driver {
 		
 		FileProcessor fpObj = new FileProcessor(inputfile);
 		MyArrayList arrObj = new MyArrayList();
+		MyArrayListTest tObj = new MyArrayListTest();
+		Results rObj = new Results(outputfile);
 		
 		while((currNumber = fpObj.readLine())!= null)
 		{
@@ -48,6 +52,8 @@ public class Driver {
 		System.out.println("Total elements in array is "+size);
 		int sum = arrObj.sum();
 		System.out.println("The sum of all the values in the array list is:"+sum);
+		
+		tObj.testMe(arrObj, rObj);
 		
 	}
 

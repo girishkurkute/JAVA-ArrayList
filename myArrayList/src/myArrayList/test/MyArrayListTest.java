@@ -9,6 +9,26 @@ public class MyArrayListTest {
 		testDuplicateValueSort(myArrayList,results);
 	}
 	
+	private void testDeleteAllOccurence(MyArrayList myArrayList, Results results) {
+		// TODO Auto-generated method stub
+		myArrayList.insertSorted(8);
+		myArrayList.insertSorted(10);
+		myArrayList.insertSorted(15);
+		myArrayList.insertSorted(15);
+		myArrayList.insertSorted(22);
+		myArrayList.insertSorted(36);
+		myArrayList.removeValue(15);
+		int[] expectedResult = {8,10,22,36};
+		boolean isTestPassed = comparrArray(expectedResult,myArrayList.copyArray());
+		if(isTestPassed)
+		{
+			results.storeNewResult("Test Delete all occurence value sort is passsed");			
+		}
+		else
+		{
+			results.storeNewResult("Test Delete all occurence is failed");
+		}
+	}
 	
 	private void testDuplicateValueSort(MyArrayList myArrayList, Results results) {
 		// TODO Auto-generated method stub
@@ -23,12 +43,14 @@ public class MyArrayListTest {
 		if(isTestPassed)
 		{
 			
-			System.out.println("Passed");
+			results.storeNewResult("Test Duplicate value sort is passsed");
+			//System.out.println("Passed");
 		}
 		else
 		{
 			
-			System.out.println("Failed");
+			results.storeNewResult("Test Duplicate value sort is failed");
+			//System.out.println("Failed");
 		}
 	}
 

@@ -51,10 +51,12 @@ public class Driver {
 		int size = arrObj.size();
 		System.out.println("Total elements in array is "+size);
 		int sum = arrObj.sum();
-		System.out.println("The sum of all the values in the array list is:"+sum);
+		//System.out.println("The sum of all the values in the array list is:"+sum);
+		String strSum = Integer.toString(sum);
 		
 		tObj.testMe(arrObj, rObj);
-		
+		rObj.writeToFile(strSum);
+		rObj.writeToStdout();
 	}
 
 }

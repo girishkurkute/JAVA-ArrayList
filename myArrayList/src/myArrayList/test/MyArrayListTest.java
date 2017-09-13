@@ -7,7 +7,83 @@ public class MyArrayListTest {
 	{
 		myArrayList.flush();
 		testDuplicateValueSort(myArrayList,results);
+		
+		myArrayList.flush();
+		testDeleteAllOccurence(myArrayList,results);
+		
+		myArrayList.flush();
+		testAddZero(myArrayList,results);
+		
+		myArrayList.flush();
+		testCheckSum(myArrayList,results);
+		
+		myArrayList.flush();
+		testCheckSumOnEmptyArray(myArrayList,results);
+		
 	}
+	
+	private void testCheckSumOnEmptyArray(MyArrayList myArrayList,
+			Results results) {
+		// TODO Auto-generated method stub
+		boolean isSumCorrect = compareValue(0,myArrayList.sum());
+		boolean isTestPassed = isSumCorrect;
+		if(isTestPassed)
+		{
+			results.storeNewResult("Test sum of empty array is passsed");
+			//System.out.println("Passed");
+		}
+		else
+		{
+			results.storeNewResult("Test sum of empty array is failed");
+			//System.out.println("Failed");
+		}
+	}
+
+	private void testCheckSum(MyArrayList myArrayList, Results results) {
+		// TODO Auto-generated method stub
+		myArrayList.insertSorted(8);
+		myArrayList.insertSorted(10);
+		myArrayList.insertSorted(15);
+		myArrayList.insertSorted(15);
+		
+		
+		boolean isSumCorrect = compareValue(48,myArrayList.sum());
+		boolean isTestPassed = isSumCorrect;
+		if(isTestPassed)
+		{
+			results.storeNewResult("Test sum of all elements is passsed");
+			//System.out.println("Passed");
+		}
+		else
+		{
+			results.storeNewResult("Test sum of all elements is failed");
+			//System.out.println("Failed");
+		}
+	}
+
+	private void testAddZero(MyArrayList myArrayList, Results results) {
+		// TODO Auto-generated method stub
+		myArrayList.insertSorted(8);
+		myArrayList.insertSorted(10);
+		myArrayList.insertSorted(0);
+		myArrayList.insertSorted(0);
+		
+		
+		boolean isSizeCorrect = compareValue(4,myArrayList.size());
+		boolean isTestPassed = isSizeCorrect;
+		if(isTestPassed)
+		{
+			results.storeNewResult("Test Adding zero element is passsed");
+			//System.out.println("Passed");
+		}
+		else
+		{
+			results.storeNewResult("Test Adding zero element is failed");
+			//System.out.println("Failed");
+		}
+	}
+
+
 	
 	private void testDeleteAllOccurence(MyArrayList myArrayList, Results results) {
 		// TODO Auto-generated method stub

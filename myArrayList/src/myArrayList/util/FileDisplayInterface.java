@@ -1,5 +1,7 @@
 package myArrayList.util;
 
-public interface FileDisplayInterface {
+import java.io.FileNotFoundException;
 
+public interface FileDisplayInterface {
+	public void writeToFile(String temp) throws FileNotFoundException;
 }

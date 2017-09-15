@@ -44,7 +44,10 @@ public class MyArrayList {
 		int p=0;
 		int index = 0;
 		
-		
+		index = indexOf(Value);
+		//while(z>=0)
+		if(index != -1)
+		{
 		for(int k=0;k<=z;k++)
 		{
 			if(MyArrayList[k] == Value)
@@ -68,7 +71,12 @@ public class MyArrayList {
 			//7z--;
 			
 		}
-		
+		MyArrayList = tempRemovedArrayList;
+		}
+		else
+		{
+			System.out.println("Value"+Value+" not present in array");
+		}
 		
 		System.out.println("--------");
 		for(int k=0;k<tempRemovedArrayList.length;k++) {
@@ -76,7 +84,11 @@ public class MyArrayList {
 	      }						
 		
 		
-	}
+			
+		}
+		
+		
+		
 	
 	
 	public int indexOf(int Value)

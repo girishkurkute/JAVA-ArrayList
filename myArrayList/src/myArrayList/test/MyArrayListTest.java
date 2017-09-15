@@ -1,8 +1,10 @@
 package myArrayList.test;
+
 import myArrayList.MyArrayList;
 import myArrayList.util.Results;
 
 public class MyArrayListTest {
+	
 	public void testMe(MyArrayList myArrayList, Results results)
 	{
 		myArrayList.flush();
@@ -20,8 +22,135 @@ public class MyArrayListTest {
 		myArrayList.flush();
 		testCheckSumOnEmptyArray(myArrayList,results);
 		
+		myArrayList.flush();
+		testCheckIndexEmptyArray(myArrayList,results);
+		
+		myArrayList.flush();
+		testCheckIndexInMultipleOccurence(myArrayList,results);				
+		
+		myArrayList.flush();
+		testCheckMultipleInsertDeletion(myArrayList,results);
+				
+		myArrayList.flush();
+		testArrayResize(myArrayList,results);
+		
+		myArrayList.flush();
+		testRemoveValueNotInArray(myArrayList,results);
 	}
+
+	private void testRemoveValueNotInArray(MyArrayList myArrayList,
+			Results results) {
+		// TODO Auto-generated method stub
+		myArrayList.insertSorted(1);
+		myArrayList.insertSorted(2);
+		myArrayList.insertSorted(3);
+		myArrayList.insertSorted(4);
+		myArrayList.insertSorted(5);
+		myArrayList.removeValue(8);
+		int[] expectedResult = {1,2,3,4,5};
+		boolean isTestPassed = comparrArray(expectedResult,myArrayList.copyArray());
+		if(isTestPassed)
+		{
+			results.storeNewResult("Test remove value not in Array is passsed");			
+		}
+		else
+		{
+			results.storeNewResult("Test remove value not in Array is failed");
+		}
+	}
+
+	private void testArrayResize(MyArrayList myArrayList, Results results) {
+		// TODO Auto-generated method stub
+		
+		for(int z=0; z<50; z++)
+		{
+			myArrayList.insertSorted(z+1);
+		}
+		myArrayList.insertSorted(51);
+		boolean isSizeCorrect = compareValue(51,myArrayList.size());
+		boolean isTestPassed = isSizeCorrect;
+		if(isTestPassed)
+		{
+			results.storeNewResult("Test size of array after resizing is passsed");
+			//System.out.println("Passed");
+		}
+		else
+		{
+			results.storeNewResult("Test size of array after resizing is failed");
+			//System.out.println("Failed");
+		}
+	}
+
 	
+
+	private void testCheckMultipleInsertDeletion(MyArrayList myArrayList,
+			Results results) {
+		// TODO Auto-generated method stub
+		myArrayList.insertSorted(8);
+		myArrayList.insertSorted(10);
+		myArrayList.insertSorted(15);
+		myArrayList.insertSorted(15);
+		myArrayList.insertSorted(15);
+		myArrayList.insertSorted(36);
+		myArrayList.removeValue(15);
+		myArrayList.insertSorted(30);
+		myArrayList.insertSorted(25);
+		myArrayList.removeValue(10);
+		boolean isIndexCorrect = compareValue(3,myArrayList.indexOf(30));
+		boolean isTestPassed = isIndexCorrect;
+		if(isTestPassed)
+		{
+			results.storeNewResult("Test Index of element after multiple addtion and deletion is passsed");
+			//System.out.println("Passed");
+		}
+		else
+		{
+			results.storeNewResult("Test Index of element after multiple addtion and deletion is failed");
+			//System.out.println("Failed");
+		}
+		
+	}
+
+	private void testCheckIndexInMultipleOccurence(MyArrayList myArrayList,
+			Results results) {
+		// TODO Auto-generated method stub
+		myArrayList.insertSorted(8);
+		myArrayList.insertSorted(10);
+		myArrayList.insertSorted(15);
+		myArrayList.insertSorted(15);
+		myArrayList.insertSorted(22);
+		myArrayList.insertSorted(36);
+		boolean isIndexCorrect = compareValue(3,myArrayList.indexOf(15));
+		boolean isTestPassed = isIndexCorrect;
+		if(isTestPassed)
+		{
+			results.storeNewResult("Test Index of element in multiple occurence is passsed");
+			//System.out.println("Passed");
+		}
+		else
+		{
+			results.storeNewResult("Test Index of element in multiple occurence is failed");
+			//System.out.println("Failed");
+		}
+	}
+
+	private void testCheckIndexEmptyArray(MyArrayList myArrayList,
+			Results results) {
+		// TODO Auto-generated method stub
+		boolean isIndexCorrect = compareValue(-1,myArrayList.indexOf(5));
+		boolean isTestPassed = isIndexCorrect;
+		if(isTestPassed)
+		{
+			results.storeNewResult("Test Index of element in  empty array is passsed");
+			//System.out.println("Passed");
+		}
+		else
+		{
+			results.storeNewResult("Test Index of element in  empty array is failed");
+			//System.out.println("Failed");
+		}
+	}
+
 	private void testCheckSumOnEmptyArray(MyArrayList myArrayList,
 			Results results) {
 		// TODO Auto-generated method stub
@@ -83,8 +212,6 @@ public class MyArrayListTest {
 		}
 	}
 
-
-	
 	private void testDeleteAllOccurence(MyArrayList myArrayList, Results results) {
 		// TODO Auto-generated method stub
 		myArrayList.insertSorted(8);
@@ -105,7 +232,7 @@ public class MyArrayListTest {
 			results.storeNewResult("Test Delete all occurence is failed");
 		}
 	}
-	
+
 	private void testDuplicateValueSort(MyArrayList myArrayList, Results results) {
 		// TODO Auto-generated method stub
 		myArrayList.insertSorted(8);
@@ -118,13 +245,11 @@ public class MyArrayListTest {
 		boolean isTestPassed = comparrArray(expectedResult,myArrayList.copyArray());
 		if(isTestPassed)
 		{
-			
 			results.storeNewResult("Test Duplicate value sort is passsed");
 			//System.out.println("Passed");
 		}
 		else
 		{
-			
 			results.storeNewResult("Test Duplicate value sort is failed");
 			//System.out.println("Failed");
 		}
@@ -151,4 +276,3 @@ public class MyArrayListTest {
 		return expectedResultlength==copyArraylength;
 	}
 }
-

@@ -8,7 +8,7 @@ public class FileProcessor {
 private Scanner scn = null;
 	
 
-	
+	//constructor
 	public FileProcessor(String inputfile)throws Exception {
 		// TODO Auto-generated constructor stub
 		scn = new Scanner(new File(inputfile));

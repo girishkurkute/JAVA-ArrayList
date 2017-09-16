@@ -13,6 +13,7 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 		this.outputFileName=filename;
 	}
 	
+	//Function to write print result stored in data structure 
 	@Override
 	public void writeToStdout() {
 		// TODO Auto-generated method stub
@@ -21,6 +22,8 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 			System.out.println(temp);
 		}
 	}
+	
+	//Function to write result stored in data structure into text file
 	@Override
 	public void writeToFile(String temp) throws FileNotFoundException {
 		// TODO Auto-generated method stub
@@ -41,11 +44,11 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 			wrt.printf(currentLine);
 			wrt.println();
 		}
-		//wrt.printf("The sum of all the values in the array list is:%d",sum );
-		//wrt.println();
+
 		wrt.close();
 	}
 	
+	//Function to store result into data structure
 	public void storeNewResult(String result)
 	{
 		this.FinalResults.add(result);

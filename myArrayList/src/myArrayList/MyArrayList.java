@@ -7,12 +7,14 @@ public class MyArrayList {
 	
 	private int MyArrayList[] = null;
 	private int arrfilledSize = 0;
-
+	
+	//constructor
 	public MyArrayList() {
 		
 		MyArrayList = new int[50];
 	}
 	 
+	//Inserting elements in array and sorting array
 	public void insertSorted(int newValue)
 	{
 		
@@ -37,6 +39,7 @@ public class MyArrayList {
 		 
 	}
 	
+	//Function to remove element from array
 	public void removeValue(int Value)
 	{
 		int[] tempRemovedArrayList = new int[arrfilledSize];
@@ -45,22 +48,15 @@ public class MyArrayList {
 		int index = 0;
 		
 		index = indexOf(Value);
-		//while(z>=0)
+		
+		//checking element is present in array or not
 		if(index != -1)
 		{
 		for(int k=0;k<=z;k++)
 		{
 			if(MyArrayList[k] == Value)
 			{
-				//removing element at position
-				/*for(int j = k;j<arrfilledSize-1;j++)
-				{
-					MyArrayList[j] = MyArrayList[j+1];
-					if(j == arrfilledSize-1)
-					{
-						MyArrayList[j+1]=0;
-					}
-				}*/
+
 				arrfilledSize--;
 			}
 			else
@@ -68,29 +64,19 @@ public class MyArrayList {
 				tempRemovedArrayList[p]=MyArrayList[k];
 				p++;
 			}
-			//7z--;
 			
 		}
 		MyArrayList = tempRemovedArrayList;
 		}
 		else
 		{
-			System.out.println("Value"+Value+" not present in array");
-		}
-		
-		System.out.println("--------");
-		for(int k=0;k<tempRemovedArrayList.length;k++) {
-	         System.out.println(tempRemovedArrayList[k]);
-	      }						
-		
-		
-			
+			//System.out.println("Value "+Value+" not present in array");
 		}
 		
 		
-		
-	
-	
+		}
+
+	//Function to provide first index of element in array
 	public int indexOf(int Value)
 	{
 		for(int z=0;z<arrfilledSize;z++)
@@ -103,11 +89,13 @@ public class MyArrayList {
 		return -1;
 	}
 	
+	//Function to get size of array
 	public int size()
 	{
 		return arrfilledSize;
 	}
 	
+	//Function to get sum of all elements in array
 	public int sum()
 	{
 		int total = 0;
@@ -118,12 +106,14 @@ public class MyArrayList {
 		return total;
 	}
 	
+	//Function to clear the array elements
 	public void flush()
 	{
 		this.arrfilledSize=0;
 		this.MyArrayList = new int [50];
 	}
 	
+	//Function to copy array	
 	public int[] copyArray()
 	{
 		return Arrays.copyOf(MyArrayList, arrfilledSize);

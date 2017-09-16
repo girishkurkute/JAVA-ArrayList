@@ -1,5 +1,6 @@
 package myArrayList.driver;
 
+import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
 
 import myArrayList.MyArrayList;
@@ -25,38 +26,48 @@ public class Driver {
 			
 		}
 		
-		FileProcessor fpObj = new FileProcessor(inputfile);
 		MyArrayList arrObj = new MyArrayList();
-		MyArrayListTest tObj = new MyArrayListTest();
+		FileProcessor fpObj = new FileProcessor(inputfile);
 		Results rObj = new Results(outputfile);
-		
+
+		MyArrayListTest tObj = new MyArrayListTest();
+		try
+		{
 		while((currNumber = fpObj.readLine())!= null)
 		{
 			int number = Integer.parseInt(currNumber);
-			System.out.println(currNumber);
+			//checking file elements between 0 to 10000
 			if(number < 0 || number > 10000)
 			{
-				
-				fpObj.disposeScanner();
-				throw new InputMismatchException("Invalid number "+number);
+				continue;				
 			}
 			else
 			{
 				arrObj.insertSorted(number);
-			}				
+			}
+			
+		
 		}
-		arrObj.removeValue(5);
-		int a=arrObj.indexOf(6);
-		System.out.println("index of 6:"+a);
-		int size = arrObj.size();
-		System.out.println("Total elements in array is "+size);
+		
 		int sum = arrObj.sum();
-		//System.out.println("The sum of all the values in the array list is:"+sum);
+	
 		String strSum = Integer.toString(sum);
 		
 		tObj.testMe(arrObj, rObj);
 		rObj.writeToFile(strSum);
 		rObj.writeToStdout();
+		
+		}
+		catch(FileNotFoundException e)
+		{
+			System.err.println("Exception");
+			e.printStackTrace();
+		}
+		catch(Exception e)
+		{
+			System.err.println("Exception");
+			e.printStackTrace();
+		}
 	}
 
 }

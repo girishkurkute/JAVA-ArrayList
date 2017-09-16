@@ -72,12 +72,12 @@ public class MyArrayListTest {
 		if(isTestPassed)
 		{
 			results.storeNewResult("Test size of array after resizing is passsed");
-			//System.out.println("Passed");
+
 		}
 		else
 		{
 			results.storeNewResult("Test size of array after resizing is failed");
-			//System.out.println("Failed");
+	
 		}
 	}
 
